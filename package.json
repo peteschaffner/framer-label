@@ -16,7 +16,7 @@
     "url": "git+ssh://git@github.com/peteschaffner/framer-label.git"
   },
   "main": "index.coffee",
-  "devDependencies": {
+  "dependencies": {
     "coffeeify": "^1.1.0"
   },
   "browserify": {

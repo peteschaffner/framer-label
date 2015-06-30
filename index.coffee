@@ -1,5 +1,5 @@
 
-module.exports = class Label extends Layer
+module.exports = class extends Layer
   constructor: (opts={}) ->
     opts.name ?= "label"
     opts.text ?= "Label Text"
@@ -21,10 +21,6 @@ module.exports = class Label extends Layer
     # width constraint
     constraints = {}
     constraints.width = opts.width if opts.width
-
-    # reset cached `width` on `_textSizeNode` if it exists
-    # TODO: this is brittle ... consider suggesting a change upstream
-    document.getElementById("_textSizeNode")?.style.width = ""
 
     # get computed size
     size = Utils.textSize opts.text, _.clone(style)

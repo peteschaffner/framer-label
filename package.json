@@ -1,0 +1,27 @@
+{
+  "name": "framer-label",
+  "version": "0.1.0",
+  "description": "Label module with multi-line truncation support for Framer.js.",
+  "author": {
+    "name": "Pete Schaffner",
+    "email": "pjschaffner@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "prototyping",
+    "framerjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/peteschaffner/framer-label.git"
+  },
+  "main": "index.coffee",
+  "devDependencies": {
+    "coffeeify": "^1.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
+  }
+}

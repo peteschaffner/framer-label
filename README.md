@@ -8,6 +8,11 @@ it contains. There is also support for single/multi-line truncation when
 constraining the label’s `width`.
 
 ## Usage
+
+You can find an
+[example Framer Studio project](http://share.framerjs.com/v9l2rpmlnsju/) here,
+or follow the instructions below:
+
 ```shell
 $ cd <myProject>.framer
 $ npm install framer-label

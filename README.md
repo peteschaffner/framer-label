@@ -7,6 +7,9 @@ Create a layer that is the intrinsic size (height and width) of the text content
 it contains. There is also support for single/multi-line truncation when
 constraining the label’s `width`.
 
+**Note:** This module depends on the beta `Utils.textSize` method, so be sure to
+"File > Update Framer&hellip;".
+
 ## Usage
 
 You can find an

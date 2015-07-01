@@ -6,7 +6,7 @@
 Create a layer that is the intrinsic size (height and width) of the text content
 it contains. There is also support for single/multi-line truncation.
 
-Check out the [example](http://share.framerjs.com/v9l2rpmlnsju/) or
+Check out the [example](http://share.framerjs.com/b3454zg73uqs/) or
 clone/download this repo, open it in [Framer Studio](http://framerjs.com/)
 and play around.
 

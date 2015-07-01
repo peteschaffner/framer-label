@@ -1,7 +1,6 @@
 
 class Label extends Layer
 	constructor: (opts={}) ->
-		opts.name ?= "label"
 		opts.text ?= "Label Text"
 		opts.lineHeight ?= "normal"
 		opts.backgroundColor ?= "transparent"

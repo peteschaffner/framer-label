@@ -77,7 +77,8 @@ class Label extends Layer
 	@define "lineNumber",
 		get: -> @_lineNumber
 		set: (value) ->
-			@_lineNumber = @style.webkitLineClamp = value
+			@_lineNumber = value
+			@style.webkitLineClamp = if value then value else ""
 			@_resize()
 			@emit "change:lineNumber", value
 

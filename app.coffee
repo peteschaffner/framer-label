@@ -89,7 +89,9 @@ _.keys document.createElement("div").style
 		!Layer.prototype.hasOwnProperty(prop)
 	.forEach (prop) ->
 		Label.define prop,
-			get: -> @style[prop].replace "px", ""
+			get: ->
+				p = @style[prop].replace "px", ""
+				if isNaN p then p else +p
 			set: (value) ->
 				# add 'px' suffix when appropriate
 				@style[prop] = if typeof value is "number" and

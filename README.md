@@ -1,7 +1,7 @@
 
 # Framer `Label` module
 
-<img src="screenshot.png" width="273">
+<img src="screenshot.png" width="470">
 
 Create a layer that is the intrinsic size (height and width) of the text content
 it contains. There is also support for single/multi-line truncation.

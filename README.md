@@ -37,7 +37,9 @@ new Label
 
 ## API
 
-### `Layer#lineNumber <number>`
+### `Layer#lineCount <number>`
+**Aliases**: `lineNumber`, `lineClamp`, `numberOfLines`
+
 Represents the max number of lines a label can have. This only applies when
 there is a constraining `maxWidth` set. Set to `0`, `null` or any other falsey
 value to stop truncation and render the label at its inherit height.

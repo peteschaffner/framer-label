@@ -1,4 +1,10 @@
 
+aliasProperty = (property, alias) ->
+	get: -> @[property]
+	set: (value) ->
+		@[property] = value
+		@emit "change:#{alias}", value
+
 class Label extends Layer
 	constructor: (opts={}) ->
 		opts.text ?= "Label Text"
@@ -73,13 +79,17 @@ class Label extends Layer
 			@_resize()
 			@emit "change:text", value
 	
-	@define "lineNumber",
-		get: -> @_lineNumber
+	@define "lineCount",
+		get: -> @_lineCount
 		set: (value) ->
-			@_lineNumber = value
+			@_lineCount = value
 			@style.webkitLineClamp = if value then value else ""
 			@_resize()
-			@emit "change:lineNumber", value
+			@emit "change:lineCount", value
+
+# set aliases for `lineCount`
+for alias in ["numberOfLines", "lineNumber", "lineClamp"]
+	Label.define alias, aliasProperty "lineCount", alias
 
 # create getters/setters for all typography-related style props
 # thant aren't already `Layer` properties

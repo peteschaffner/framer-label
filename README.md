@@ -53,8 +53,9 @@ size.
 The text (and/or HTML) to display.
 
 ### `Layer#<css-typography-property>`
-All the [CSS typography properties][CSS props] are `Label` properties as well. No need
-to `myLabel.style.lineHeight = 1.5`.
+All the [CSS typography properties][CSS props] are `Label` properties as well.
+No need to `myLabel.style.lineHeight = 1.5`. Numeric values are intelligently
+suffixed with 'px' and unitless properties, like `lineHeight`, stay unitless.
 
 ## License
 The MIT License (MIT)

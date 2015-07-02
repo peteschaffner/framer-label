@@ -138,10 +138,3 @@ unitlessNumbers = [
 ]
 
 module?.exports = Label
-
-
-new Label 
-	text: "A long line of text to wrap"
-	backgroundColor: "teal"
-	maxWidth: 100
-	numberOfLines: 3

@@ -86,8 +86,6 @@ class Label extends Layer
 			@style.webkitLineClamp = if value then value else ""
 			@update()
 			@emit "change:lineCount", value
-	
-	@
 
 # set aliases for `lineCount`
 for alias in ["numberOfLines", "lineNumber", "lineClamp"]

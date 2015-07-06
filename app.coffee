@@ -24,9 +24,9 @@ class Label extends Layer
 				webkitLineClamp: opts.lineNumber
 		
 		# size layer
-		@_resize()
+		@update()
 
-	_resize: ->
+	update: ->
 		style =
 			lineHeight: @style.lineHeight
 			textTransform: @style.textTransform
@@ -66,7 +66,7 @@ class Label extends Layer
 		set: (value) ->
 			@_maxWidth = value
 			@_constrained = if value then true else false
-			@_resize()
+			@update()
 			@emit "change:maxWidth", value
 	
 	@define "text",
@@ -76,7 +76,7 @@ class Label extends Layer
 			# append a non-breaking space to correct
 			# truncation for the last word in the string
 			@html = if @_constrained then "#{value} \xA0" else value
-			@_resize()
+			@update()
 			@emit "change:text", value
 	
 	@define "lineCount",
@@ -84,8 +84,10 @@ class Label extends Layer
 		set: (value) ->
 			@_lineCount = value
 			@style.webkitLineClamp = if value then value else ""
-			@_resize()
+			@update()
 			@emit "change:lineCount", value
+	
+	@
 
 # set aliases for `lineCount`
 for alias in ["numberOfLines", "lineNumber", "lineClamp"]

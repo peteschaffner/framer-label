@@ -25,7 +25,7 @@ exports.Label = require "framer-label"
 ```
 
 app.coffee:
-```javascript
+```coffeescript
 {Label} = require "myModule"
 
 new Label

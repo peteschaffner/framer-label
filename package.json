@@ -1,6 +1,6 @@
 {
   "name": "framer-label",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Label module with multi-line truncation support for Framer.js.",
   "author": {
     "name": "Pete Schaffner",

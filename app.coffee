@@ -42,6 +42,7 @@ class Label extends Layer
 		tempEl.innerHTML = @text
 		tempEl.style.display = "inline-block"
 		tempEl.style.visibility = "hidden"
+		tempEl.style.whiteSpace = "nowrap"
 		_.extend tempEl.style, style
 		document.body.appendChild tempEl
 
@@ -50,6 +51,7 @@ class Label extends Layer
 
 		# compute the max height if we are constraining
 		maxHeight = =>
+			tempEl.style.whiteSpace = "normal"
 			tempEl.style.width = "#{@maxWidth}px"
 			intrinsicHeight = tempEl.getBoundingClientRect().height
 			# If `lineCount` is falsey, then make intrinsic height

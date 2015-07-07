@@ -10,9 +10,6 @@ Check out the [example](http://share.framerjs.com/b3454zg73uqs/) or
 clone/download this repo, open it in [Framer Studio](http://framerjs.com/)
 and play around.
 
-**Note:** This module depends on the beta `Utils.textSize` method, so be sure to
-"File > Update Framer&hellip;".
-
 ## Usage
 ```shell
 $ cd <myProject>.framer
@@ -56,6 +53,9 @@ The text (and/or HTML) to display.
 All the [CSS typography properties][CSS props] are `Label` properties as well.
 No need to `myLabel.style.lineHeight = 1.5`. Numeric values are intelligently
 suffixed with 'px' and unitless properties, like `lineHeight`, stay unitless.
+
+### `Layer#update`
+Update the label's size.
 
 ## License
 The MIT License (MIT)

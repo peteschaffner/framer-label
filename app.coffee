@@ -37,29 +37,33 @@ class Label extends Layer
 			fontSize: @style.fontSize
 			fontWeight: @style.fontWeight
 		
-		# width constraint
-		constraints = {}
-		constraints.width = @maxWidth if @_constrained
+		# create and style a temporary element
+		tempEl = document.createElement "div"
+		tempEl.innerHTML = @text
+		tempEl.style.display = "inline-block"
+		tempEl.style.visibility = "hidden"
+		_.extend tempEl.style, style
+		document.body.appendChild tempEl
 
-		# get computed size
-		size = Utils.textSize @text, _.clone(style)
+		# get intrinsic width/height
+		size = tempEl.getBoundingClientRect()
 
-		# ...and now with constraints (if they exist)
-		constrainedSize = Utils.textSize @text, _.clone(style), constraints
+		# compute the max height if we are constraining
+		maxHeight = =>
+			tempEl.style.width = "#{@maxWidth}px"
+			intrinsicHeight = tempEl.getBoundingClientRect().height
+			# If `lineCount` is falsey, then make intrinsic height
+			if !@lineCount
+				intrinsicHeight
+			else
+				Math.min size.height * @lineCount, intrinsicHeight
+
+		# set width/height
+		@width = if @_constrained then @maxWidth else size.width
+		@height = if @_constrained then maxHeight() else size.height
 		
-		# set width
-		@width = Math.min size.width, constrainedSize.width
-		
-		# remove non-breaking space character
-		# if less than or equal to `maxWidth`
-		@html = @html.replace " &nbsp;", "" if size.width <=
-			constrainedSize.width
-		
-		# cap the `height` when more `lineNumber`s than intrinsic height
-		if !@lineNumber or @lineNumber * size.height > constrainedSize.height
-			@height = constrainedSize.height
-		else
-			@height = @lineNumber * size.height
+		# remove temporary element
+		tempEl.remove()
 
 	@define "maxWidth",
 		get: -> @_maxWidth
